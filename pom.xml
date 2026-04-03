@@ -22,7 +22,7 @@
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <compiler-plugin.version>3.12.1</compiler-plugin.version>
-        <maven.compiler.release>21</maven.compiler.release>
+        <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <skipITs>true</skipITs>
@@ -80,7 +80,7 @@
             <artifactId>jackson-databind</artifactId>
         </dependency>
 
-        <!-- DEVTOOLS (optional) -->
+        <!-- DEVTOOLS -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -102,13 +102,18 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- SONAR (optional, used in pipeline) -->
+        <!-- SONAR QUBE -->
         <dependency>
             <groupId>org.sonarsource.scanner.maven</groupId>
             <artifactId>sonar-maven-plugin</artifactId>
             <version>3.10.0.2594</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc11</artifactId>
+            <version>21.9.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>
