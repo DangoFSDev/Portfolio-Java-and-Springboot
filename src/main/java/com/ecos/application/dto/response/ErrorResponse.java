@@ -18,4 +18,12 @@ public class ErrorResponse {
                             .build();
     }
 
+    public static ErrorResponse instantiate(String status, String message) {
+
+        return ErrorResponse.builder()
+                            .status(status)
+                            .message(message)
+                            .build();
+    }
+
 }

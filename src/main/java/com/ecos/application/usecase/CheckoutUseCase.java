@@ -26,9 +26,20 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CheckoutUseCase {
 
+    private final PaymentOptionFactory paymentOptionFactory;
     private final ProductRepository productRepository;
     private final OrderRepository orderRepository;
 
+    /**
+     * Save a new order based on the provided checkout request,
+     * which includes a list of items to be purchased.
+     * Each item is validated against the product repository to ensure availability and stock levels are updated accordingly.
+     * The order is then created, confirmed, and saved to the order repository, returning an OrderResponse with the order ID
+     * and total amount.
+     *
+     * @param request
+     * @return
+     */
     public OrderResponse saveOrder(CheckoutRequest request) {
 
         List<OrderItem> items = new ArrayList<>();
@@ -55,9 +66,16 @@ public class CheckoutUseCase {
         return new OrderResponse(saved.getId(), saved.getTotal());
     }
 
+    /**
+     * Process payment for the given order and payment type.
+     *
+     * @param type
+     * @param request
+     * @return
+     */
     public PaymentResponse processPayment(PaymentType type, PaymentRequest request) {
 
-        PaymentOption processor = PaymentOptionFactory.getPaymentType(type);
+        PaymentOption processor = paymentOptionFactory.getPaymentType(type);
 
         return processor.processPayment(request);
     }

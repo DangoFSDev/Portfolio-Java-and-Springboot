@@ -11,6 +11,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class OrderResponse {
 
+    // TODO: add fields
     private Long orderId;
     private Money total;
 

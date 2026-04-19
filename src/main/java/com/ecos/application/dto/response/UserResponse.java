@@ -1,5 +1,5 @@
 package com.ecos.application.dto.response;
 
-public class ProductResponse {
+public class UserResponse {
     // TODO: add fields
 }

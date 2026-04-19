@@ -15,14 +15,14 @@ public class PaymentOptionFactory {
 
     public PaymentOptionFactory(List<PaymentOption> processorList) {
 
-        this.processors = processorList.stream()
-                                       .collect(Collectors.toMap(
-                                               PaymentOption::getPaymentType,
-                                               p -> p
-                                       ));
+        processors = processorList.stream()
+                                  .collect(Collectors.toMap(
+                                          PaymentOption::getPaymentType,
+                                          p -> p
+                                  ));
     }
 
-    public static PaymentOption getPaymentType(PaymentType type) {
+    public PaymentOption getPaymentType(PaymentType type) {
 
         return processors.get(type);
     }

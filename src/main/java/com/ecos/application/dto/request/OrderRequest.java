@@ -1,5 +1,5 @@
 package com.ecos.application.dto.request;
 
-public class PaymentRequest {
+public class OrderRequest {
     // TODO: add fields
 }

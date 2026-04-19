@@ -2,6 +2,7 @@ package com.ecos.application.usecase;
 
 import java.util.List;
 
+import com.ecos.application.dto.request.ProductRequest;
 import com.ecos.application.dto.response.ProductResponse;
 import com.ecos.domain.model.Product;
 import com.ecos.domain.repository.ProductRepository;
@@ -25,6 +26,18 @@ public class ProductUseCase {
                           .filter(product -> product.getStock() > 0 && product.isActive())
                           .map(productMapper::toResponse)
                           .toList();
+    }
+
+    public ProductResponse saveProduct(ProductRequest request) {
+
+        Product result = productRepository.save(productMapper.toDomain(request));
+
+        return productMapper.toResponse(result);
+    }
+
+    public ProductResponse deleteProduct(ProductRequest request) {
+        // TODO: implementation
+        return null;
     }
 
 }

@@ -2,37 +2,51 @@ package com.ecos.infrastructure.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
-import com.ecos.domain.valueobjects.Money;
-
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "products")
+@Table(name = "products", schema = "ecos")
 @Getter
+@Setter
 @Data
-@Builder
 public class ProductEntity extends BaseTimestampedEntity implements BaseEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq_gen")
+    @SequenceGenerator(sequenceName = "product_seq", name = "product_seq_gen", allocationSize = 1, schema = "ecos")
     private Long id;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "product_id", nullable = false, unique = true)
+    private String productId;
+
+    @Column(name = "product_code", nullable = false, unique = true)
+    private String productCode;
+
+    @Column(name = "product_name", nullable = false)
+    private String productName;
+
+    @Column(name = "product_desc")
+    private String productDesc;
 
     @Column(name = "price", nullable = false)
-    private Money price;
+    private Double price;
 
-    @Column(name = "stock", nullable = false)
-    private int stock;
+    @Column(name = "currency", nullable = false)
+    private String currency;
 
-    @Column(name = "isActive", nullable = false)
+    @Column(name = "is_active", nullable = false)
     private Boolean isActive;
 
 }

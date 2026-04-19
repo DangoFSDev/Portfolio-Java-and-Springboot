@@ -13,6 +13,7 @@ import lombok.Getter;
 public class Product {
 
     private Long id;
+    private String code;
     private String name;
     private Money price;
     private boolean isActive;
