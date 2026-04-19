@@ -163,6 +163,13 @@
                 <version>3.2.5</version>
             </plugin>
 
+            <!-- OWASP DEPENDENCY CHECK -->
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>9.0.9</version>
+            </plugin>
+
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
