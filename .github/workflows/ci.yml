@@ -62,6 +62,11 @@ jobs:
 
       - name: Run OWASP Dependency Check
         run: mvn org.owasp:dependency-check-maven:check
+      - name: Cache OWASP data
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository/org/owasp/dependency-check-data
+          key: owasp-data
 
   sonar:
     name: SonarQube Analysis
