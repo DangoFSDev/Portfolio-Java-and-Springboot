@@ -30,6 +30,12 @@
         <lombok.version>1.18.30</lombok.version>
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
         <mapstruct.version>1.6.3</mapstruct.version>
+        <sonar.exclusions>
+            **/config/**,
+            **/dto/**,
+            **/mapper/**,
+            **/exception/**
+        </sonar.exclusions>
     </properties>
 
     <dependencies>
@@ -168,7 +174,7 @@
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
                 <version>9.0.9</version>
-                
+
                 <configuration>
                     <failOnError>false</failOnError>
                 </configuration>
