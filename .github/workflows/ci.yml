@@ -86,9 +86,10 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_ORG_TOKEN: ${{ secrets.SONAR_ORG_TOKEN }}
+          SONAR_PROJECT_TOKEN: ${{ secrets.SONAR_PROJECT_TOKEN }}
         run: |
           mvn sonar:sonar \
-            -Dsonar.projectKey=ecommerce \
+            -Dsonar.projectKey=$SONAR_PROJECT_TOKEN \
             -Dsonar.organization=$SONAR_ORG_TOKEN \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=$SONAR_TOKEN
