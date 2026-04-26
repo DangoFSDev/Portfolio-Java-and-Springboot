@@ -87,4 +87,5 @@ jobs:
             -Dsonar.projectKey=$SONAR_PROJECT_TOKEN \
             -Dsonar.organization=$SONAR_ORG_TOKEN \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=$SONAR_TOKEN
+            -Dsonar.login=$SONAR_TOKEN \
+            -Dsonar.qualitygate.wait=true
