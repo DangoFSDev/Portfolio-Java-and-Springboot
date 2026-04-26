@@ -4,7 +4,6 @@ package com.ecos.interfaces.controller;
 import com.ecos.application.dto.request.UserRequest;
 import com.ecos.application.dto.response.UserResponse;
 import com.ecos.application.usecase.LoginUseCase;
-import com.ecos.application.usecase.RegisterUserUseCase;
 import com.ecos.application.usecase.UserUseCase;
 
 import lombok.RequiredArgsConstructor;
@@ -24,19 +23,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private final UserUseCase userUseCase;
-    private final RegisterUserUseCase registerUserUseCase;
     private final LoginUseCase loginUseCase;
 
     @GetMapping("/{userId}")
     public ResponseEntity<UserResponse> getUser(@PathVariable("userId") Long userId) {
 
         return ResponseEntity.ok(userUseCase.getUser(userId));
-    }
-
-    @PostMapping("/register")
-    public ResponseEntity<UserResponse> registerNewUser(@RequestBody UserRequest request) {
-
-        return ResponseEntity.ok(registerUserUseCase.registerNewUser(request));
     }
 
     @PostMapping("/login")

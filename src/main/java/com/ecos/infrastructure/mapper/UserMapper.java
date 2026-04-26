@@ -1,5 +1,6 @@
 package com.ecos.infrastructure.mapper;
 
+import com.ecos.application.dto.request.UserRequest;
 import com.ecos.application.dto.response.UserResponse;
 import com.ecos.domain.model.User;
 import com.ecos.infrastructure.entity.UserEntity;
@@ -11,6 +12,10 @@ import org.mapstruct.ReportingPolicy;
 public interface UserMapper {
 
     UserEntity toEntity(User dto);
+
+    User fromRequestToDto(UserRequest request);
+
+    User fromEntityToDto(UserEntity entity);
 
     UserResponse toResponse(User dto);
 

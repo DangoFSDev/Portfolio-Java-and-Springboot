@@ -120,6 +120,17 @@
             <artifactId>sonar-maven-plugin</artifactId>
             <version>3.10.0.2594</version>
         </dependency>
+
+        <!-- CACHE + REDIS -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -183,8 +194,16 @@
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>4.9.8.2</version> <!-- Use the latest version from the SpotBugs site -->
+                <version>4.9.8.2</version>
+
                 <configuration>
+                    <effort>Max</effort>
+                    <threshold>Medium</threshold>
+
+                    <!-- Only show real issues -->
+                    <includeFilterFile>${project.basedir}/config/spotbugs-include.xml</includeFilterFile>
+
+                    <!-- Remove noise -->
                     <excludeFilterFile>${project.basedir}/config/spotbugs-exclude.xml</excludeFilterFile>
                 </configuration>
                 <executions>

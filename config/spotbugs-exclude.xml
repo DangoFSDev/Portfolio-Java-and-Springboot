@@ -1,6 +1,25 @@
 <FindBugsFilter>
+
+    <!-- Ignore DI false positives -->
     <Match>
         <Bug pattern="EI_EXPOSE_REP2"/>
-        <Class name="~.*Controller"/>
+        <Class name="~.*(Controller|UseCase|RepositoryImpl|Config).*"/>
     </Match>
+
+    <!-- Ignore Lombok builder false positives -->
+    <Match>
+        <Bug pattern="EI_EXPOSE_REP"/>
+        <Class name="~.*Builder.*"/>
+    </Match>
+
+    <!-- Ignore DTOs (they are simple carriers) -->
+    <Match>
+        <Class name="~.*dto.*"/>
+    </Match>
+
+    <!-- Ignore generated / config classes -->
+    <Match>
+        <Class name="~.*(Configuration|Application).*"/>
+    </Match>
+
 </FindBugsFilter>

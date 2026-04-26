@@ -1,7 +1,10 @@
 version: '3.9'
 
 services:
-
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
   oracle-db:
     image: gvenzl/oracle-xe:21-slim
     container_name: oracle-xe
@@ -14,14 +17,14 @@ services:
     volumes:
       - oracle_data:/opt/oracle/oradata
     healthcheck:
-      test: ["CMD", "healthcheck.sh"]
+      test: [ "CMD", "healthcheck.sh" ]
       interval: 10s
       timeout: 5s
       retries: 10
 
   app:
     build: .
-    container_name: booking-app
+    container_name: ecommerce-app
     depends_on:
       oracle-db:
         condition: service_healthy

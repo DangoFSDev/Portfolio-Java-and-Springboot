@@ -1,9 +1,20 @@
 spring:
+  cache:
+    redis:
+      time-to-live: 600000 # 10 minutes
+      key-prefix: 'ecommerce:cache:'
   datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: jdbc:oracle:thin:@localhost:1521/XEPDB1
+    username: appuser
+    password: apppass
     driver-class-name: oracle.jdbc.OracleDriver
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      repositories:
+        enabled: false
 
   jpa:
     database-platform: org.hibernate.dialect.OracleDialect

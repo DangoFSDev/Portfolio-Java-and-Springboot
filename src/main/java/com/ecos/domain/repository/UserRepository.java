@@ -6,7 +6,13 @@ import com.ecos.domain.model.User;
 
 public interface UserRepository {
 
-    User save(User user);
+    User getUser(Long userId);
+
+    User saveUser(User user);
+
+    void deleteUser(User user);
+
+    User findExistingUser(Long id);
 
     Optional<User> findByUsername(String username);
 

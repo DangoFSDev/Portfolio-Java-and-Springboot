@@ -1,0 +1,28 @@
+<FindBugsFilter>
+
+    <!-- Null pointer risks -->
+    <Match>
+        <Bug pattern="NP_NULL_ON_SOME_PATH,NP_NULL_PARAM_DEREF"/>
+    </Match>
+
+    <!-- Bad equals/hashcode -->
+    <Match>
+        <Bug pattern="EQ_OVERRIDING_EQUALS_NOT_SYMMETRIC"/>
+    </Match>
+
+    <!-- SQL / injection risks -->
+    <Match>
+        <Bug pattern="SQL_INJECTION_JDBC"/>
+    </Match>
+
+    <!-- Security issues -->
+    <Match>
+        <Bug pattern="HARD_CODE_PASSWORD"/>
+    </Match>
+
+    <!-- Resource leaks -->
+    <Match>
+        <Bug pattern="OS_OPEN_STREAM,OS_OPEN_STREAM_EXCEPTION_PATH"/>
+    </Match>
+
+</FindBugsFilter>
