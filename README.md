@@ -1,7 +1,5 @@
 # E-Commerce Order System
 
-# TODO: In-Progress (Finalization)
-
 Spring Boot application implementing Clean Architecture with Oracle DB, Docker, and CI pipeline.
 
 ---
@@ -15,6 +13,8 @@ Spring Boot application implementing Clean Architecture with Oracle DB, Docker, 
 - Flyway (DB migrations)
 - Docker / Docker Compose
 - SpotBugs (static analysis)
+- CI/CD (GitHub Actions)
+- Sonar (code quality)
 
 ---
 
@@ -54,13 +54,11 @@ docker-compose -v
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-repo/ecommerce.git
-cd ecommerce
+git clone https://github.com/DangoFSDev/Portfolio-Java-and-Springboot.git
+cd Portfolio-Java-and-Springboot
 ```
 
-// TODO: Beautify
-
-### 2. Configure environment (optional)
+### 2. Configure environment
 
 Default DB config (Docker):
 
@@ -109,46 +107,39 @@ Location:
 src/main/resources/db/migration/
 ```
 
-### 🔐 Authentication
-
-Basic Auth (for now)
-
-```
-Roles:
-- USER
-- ADMIN
-```
-
-### Example:
-
-```
-/admin/** → ADMIN only
-/users/** → USER, ADMIN
-```
-
 ---
 
 ## 📡 API Endpoints
 
-### Auth
+### User
 
 ```
-POST /auth/register
-POST /auth/login
+GET /users/{userId}
+POST /users/login
+POST /users/add
+PUT /users/update
+DELETE /users/delete
 ```
 
 ### Orders
 
 ```
+GET /orders/getAllOrders/{userId}
 POST /orders/checkout
-GET /orders/{id}
+POST /orders/payment/{paymentType}
+POST /orders/addOrder
+PATCH /orders/updateOrderQuantity
+DELETE /orders/deleteOrder
+DELETE /orders/deleteAllOrders
 ```
 
 ### Products
 
 ```
 GET /products
-GET /products/{id}
+POST /products/add
+PUT /products/update
+DELETE /products/delete
 ```
 
 ---
@@ -159,7 +150,11 @@ Run all tests
 
 ```
 mvn test
+```
+
 Run with full build
+
+```
 mvn clean install
 ```
 

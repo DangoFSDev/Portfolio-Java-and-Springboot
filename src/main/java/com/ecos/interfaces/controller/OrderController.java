@@ -14,6 +14,7 @@ import com.ecos.common.enums.PaymentType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,7 +43,7 @@ public class OrderController {
         return ResponseEntity.ok(checkoutUseCase.processPayment(paymentType, request));
     }
 
-    @PostMapping("/getAllOrders/{userId}")
+    @GetMapping("/getAllOrders/{userId}")
     public ResponseEntity<List<OrderResponse>> getAllOrders(@PathVariable("userId") Long userId) {
 
         return ResponseEntity.ok(orderUseCase.getAllOrders(userId));
