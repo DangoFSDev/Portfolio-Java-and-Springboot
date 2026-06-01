@@ -45,7 +45,7 @@ public class OrderRepositoryImpl implements OrderRepository {
     public OrderEntity updateOrderQuantity(Order order) {
 
         OrderEntity entity = mapper.toEntity(order);
-        return jpaRepository.updateOrderQuantity(entity.getId(), entity.getQuantity());
+        return jpaRepository.updateQuantity(entity.getId(), entity.getQuantity());
     }
 
     @Override

@@ -30,17 +30,15 @@ public class ProductEntity extends BaseTimestampedEntity implements BaseEntity {
     @SequenceGenerator(sequenceName = "product_seq", name = "product_seq_gen", allocationSize = 1, schema = "ecos")
     private Long id;
 
-    @Column(name = "product_id", nullable = false, unique = true)
-    private String productId;
 
-    @Column(name = "product_code", nullable = false, unique = true)
-    private String productCode;
+    @Column(name = "code", nullable = false, unique = true)
+    private String code;
 
-    @Column(name = "product_name", nullable = false)
-    private String productName;
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    @Column(name = "product_desc")
-    private String productDesc;
+    @Column(name = "desc")
+    private String desc;
 
     @Column(name = "price", nullable = false)
     private Double price;

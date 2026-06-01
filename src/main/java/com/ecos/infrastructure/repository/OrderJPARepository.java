@@ -10,6 +10,11 @@ public interface OrderJPARepository extends JpaRepository<OrderEntity, Long> {
 
     List<OrderEntity> findByUserId(Long userId);
 
-    OrderEntity updateOrderQuantity(Long orderId, Integer quantity);
+    default OrderEntity updateQuantity(Long orderId, Integer quantity) {
+
+        OrderEntity order = findById(orderId).orElseThrow(() -> new RuntimeException("Order not found"));
+        order.setQuantity(quantity);
+        return save(order);
+    }
 
 }
