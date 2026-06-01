@@ -33,4 +33,7 @@ public class OrderEntity extends BaseTimestampedEntity implements BaseEntity {
     @Column(name = "user_id", nullable = false)
     private Long userId;
 
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
+
 }

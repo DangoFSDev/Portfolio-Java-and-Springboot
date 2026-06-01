@@ -1,7 +1,5 @@
 package com.ecos.application.dto.response;
 
-import com.ecos.domain.valueobjects.Money;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,8 +9,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public class OrderResponse {
 
-    // TODO: add fields
-    private Long orderId;
-    private Money total;
+    private Long id;
+    private String code;
+    private Double total;
+    private Integer quantity;
 
 }

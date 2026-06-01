@@ -15,7 +15,6 @@ public class LoggerUtil {
         // Private constructor to prevent instantiation
     }
 
-    // TODO: Add to all methods in the project
     @PostConstruct
     private static void getDeclaringClassName() {
 

@@ -68,9 +68,10 @@ public class OrderController {
     }
 
     @DeleteMapping("/deleteAllOrders")
-    public ResponseEntity<List<OrderResponse>> deleteAllOrders(@RequestBody List<OrderRequest> requests) {
+    public ResponseEntity<String> deleteAllOrders(@RequestBody List<OrderRequest> requests) {
 
-        return ResponseEntity.ok(orderUseCase.deleteAllOrders(requests));
+        orderUseCase.deleteAllOrders(requests);
+        return ResponseEntity.ok("Successful deletion of all orders.");
     }
 
 }

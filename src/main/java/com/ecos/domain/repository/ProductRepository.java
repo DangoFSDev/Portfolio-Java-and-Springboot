@@ -13,4 +13,8 @@ public interface ProductRepository {
 
     List<Product> getAllProducts();
 
+    int delete(Product product);
+
+    Optional<Product> findByCode(String code);
+
 }
